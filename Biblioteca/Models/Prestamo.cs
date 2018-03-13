@@ -16,11 +16,12 @@ namespace Biblioteca.Models
 
         public DateTime FechaMaxima { get; set; }
 
-        [ForeignKey("IdPersona")]
-        public Persona Persona { get; set; }
+        [ForeignKey("IdApplicationUser")]
+        public ApplicationUser ApplicationUser { get; set; }
+        public string IdApplicationUser { get; set; }
 
-        public int IdPersona { get; set; }
-
-        public virtual List<Volumen> Volumenes { get; set; }
+        [ForeignKey("IdVolumen")]
+        public Volumen Volumen { get; set; }
+        public int IdVolumen { get; set; }
     }
 }

@@ -24,12 +24,16 @@ namespace Biblioteca
                       "~/Scripts/respond.js",
                       "~/Content/themes/sunny/jquery-ui.sunny.css"));
 
+            //Si algo falla incluir "~Content/Site.css"
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryuiScripts").Include(
                 "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryuiStyles").Include(
+                "~/Content/themes/smoothness/jquery-ui.smoothness.css"));
         }
     }
 }

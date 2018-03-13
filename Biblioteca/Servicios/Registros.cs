@@ -1,15 +1,12 @@
 ﻿using Biblioteca.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Biblioteca.Servicios
 {
     public class Registros
     {
-        private static BibliotecaDbContext db = new BibliotecaDbContext();
+        private static ApplicationDbContext db = new ApplicationDbContext();
 
         public static bool RegistrarLibro(AutorLibroVolumenVM model, ModelStateDictionary ModelState)
         {

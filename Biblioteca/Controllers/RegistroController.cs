@@ -1,8 +1,5 @@
 ﻿using Biblioteca.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Biblioteca.Servicios;
 
@@ -10,7 +7,7 @@ namespace Biblioteca.Controllers
 {
     public class RegistroController : Controller
     {
-        private BibliotecaDbContext db = new BibliotecaDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Registro
         public ActionResult Index()
         {
@@ -23,10 +20,10 @@ namespace Biblioteca.Controllers
             return View();
         }
 
+        #region Crear Libro
         // GET: Registro/Create
         public ActionResult Create()
         {
-
             return View();
         }
 
@@ -34,7 +31,7 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public ActionResult Create(AutorLibroVolumenVM model)
         {
-            if(Registros.RegistrarLibro(model, ModelState))
+            if (Registros.RegistrarLibro(model, ModelState))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -42,6 +39,28 @@ namespace Biblioteca.Controllers
             {
                 ModelState.AddModelError("Error", "Algo ha pasado, intenta nuevamente");
                 return View();
+            }
+        } 
+        #endregion
+
+        public ActionResult CreateAutor(string result)
+        {
+            ViewBag.msj = result;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateAutor(Autor model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            else
+            {
+                db.Autores.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("CreateAutor",new { result= "nk}*v%7t?PXbiTDGPgqqvq:T,-:{Hc" });
             }
         }
 

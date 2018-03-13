@@ -1,0 +1,16 @@
+﻿@model Biblioteca.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Registro";
+    ViewBag.Register = "active";
+    ViewBag.Controller = "Account";
+    ViewBag.Action = "Register";
+}
+
+<h2>Registro de Usuario </h2>
+
+@Html.Partial("_RegisterPartial")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

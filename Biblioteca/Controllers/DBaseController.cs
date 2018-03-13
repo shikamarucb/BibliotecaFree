@@ -6,12 +6,13 @@ using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using System.Text;
+using Biblioteca.ProgramacionInterna;
 
 namespace Biblioteca.Controllers
 {
     public class DBaseController : Controller
     {
-        private BibliotecaDbContext db = new BibliotecaDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: DBase
         public ActionResult Index()
         {
@@ -35,6 +36,12 @@ namespace Biblioteca.Controllers
 
             }
             return View();
+        }
+
+        public ActionResult CreateRole()
+        {
+            Roles.CreateRole();
+            return RedirectToAction("Index","Home");
         }
 
         static string GetMd5Hash(MD5 md5Hash, string input)

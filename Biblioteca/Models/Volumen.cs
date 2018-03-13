@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Biblioteca.Models
 {
@@ -29,9 +30,7 @@ namespace Biblioteca.Models
         [Required]
         public int IdLibro { get; set; }
 
-        [ForeignKey("IdPrestamo")]
-        public Prestamo Prestamo { get; set; }
-
-        public int IdPrestamo { get; set; }
+        [ScriptIgnore]
+        public virtual List<Prestamo> Prestamos { get; set; }
     }
 }

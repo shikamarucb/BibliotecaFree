@@ -1,0 +1,114 @@
+﻿@model Biblioteca.Models.RegisterViewModel
+
+@using (Html.BeginForm((string)ViewBag.Action,(string)ViewBag.Controller))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="jumbotron col-md-7">
+            <h1>Formulario de Registro</h1>
+            <p>
+                Bienvenido a la página de registro de la biblioteca Cube Magic.
+                Procure rellenar todos los campos para prestar un mejor servicio.
+            </p>
+        </div>
+
+        <div class="col-md-4  col-md-offset-1 well">
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    <div class="">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                    <div class="">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                    <div class="">
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
+                    <div class="">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName)
+                    <div class="">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dni)
+                    <div class="">
+                        @Html.EditorFor(model => model.Dni, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dni, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber)
+                    <div class="">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address)
+                    <div class="">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="">
+                        <input type="submit" value="Registrarse" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+}

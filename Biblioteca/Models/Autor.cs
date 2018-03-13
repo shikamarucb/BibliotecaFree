@@ -19,6 +19,7 @@ namespace Biblioteca.Models
         [StringLength(100)]
         public string Nombre { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime? Nacimiento { get; set; }
 
         [ScriptIgnore]

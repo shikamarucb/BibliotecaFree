@@ -1,0 +1,22 @@
+﻿@*@using Microsoft.AspNet.Identity*@
+@using Biblioteca.Helpers
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li><a><span class="glyphicon glyphicon-user"></span> Bienvenido @User.Identity.GetDisplayName()</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+        </ul>
+
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="@ViewBag.Register"><a href="@Url.Action("Register","Account")"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+        <li class="@ViewBag.Login"><a href="@Url.Action("Login","Account")"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+    </ul>
+
+}
