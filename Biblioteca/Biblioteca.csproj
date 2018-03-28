@@ -180,6 +180,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AutorsController.cs" />
     <Compile Include="Controllers\DBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibroesController.cs" />
@@ -303,6 +304,14 @@
     <Content Include="Views\Registro\CreateAutor.cshtml" />
     <Content Include="Views\Shared\_RegisterPartial.cshtml" />
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
+    <Content Include="Views\Admin\CreateLibrarian.cshtml" />
+    <Content Include="Views\Admin\GetAdmin.cshtml" />
+    <Content Include="Views\Admin\EditAdmin.cshtml" />
+    <Content Include="Views\Autors\Create.cshtml" />
+    <Content Include="Views\Autors\Delete.cshtml" />
+    <Content Include="Views\Autors\Details.cshtml" />
+    <Content Include="Views\Autors\Edit.cshtml" />
+    <Content Include="Views\Autors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

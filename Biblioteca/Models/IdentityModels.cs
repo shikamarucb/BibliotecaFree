@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -10,18 +11,26 @@ using System.Web.Script.Serialization;
 namespace Biblioteca.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    public partial class ApplicationUser : IdentityUser
     {
         [ScriptIgnore]
         public virtual List<Prestamo> Prestamos { get; set; }
 
+        [Display(Name="Documento de Identidad")]
         public long Dni { get; set; }
+
+        [Display(Name="Nombre")]
         public string Name { get; set; }
+
+        [Display(Name="Apellido")]
         public string LastName { get; set; }
+
+        [Display(Name ="Direccion de Residencia")]
         public string Address { get; set; }
 
         [Index(IsUnique = true)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name ="Código de Socio")]
         public int PartnerCode { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -33,6 +42,8 @@ namespace Biblioteca.Models
             return userIdentity;
         }
     }
+
+
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -50,6 +61,23 @@ namespace Biblioteca.Models
         {
             return new ApplicationDbContext();
         }
-        
+
+    }
+
+    [MetadataType(typeof(IdentityUserHelper))]
+    public partial class ApplicationUser { }
+
+    public class IdentityUserHelper
+    {
+        [Display(Name = "Correo Electrónico")]
+        public virtual string UserName { get; set; }
+
+        [Display(Name = "Número de Teléfono")]
+        public virtual string PhoneNumber { get; set; }
+
+        [Display(Name ="Contraseña")]
+        [Required]
+        [DataType(DataType.Password)]
+        public virtual string PasswordHash { get; set; }
     }
 }

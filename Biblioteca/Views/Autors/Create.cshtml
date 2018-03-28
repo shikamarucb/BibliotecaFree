@@ -1,39 +1,16 @@
 ﻿@model Biblioteca.Models.Autor
 
 @{
-    ViewBag.Title = "CreateAutor";
+    ViewBag.Title = "Create";
 }
 
-<h2>CreateAutor</h2>
-@*Esta cadena esta definida en RegistroController CreateAutorAction*@
-@if (ViewBag.msj == "nk}*v%7t?PXbiTDGPgqqvq:T,-:{Hc")
-{
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Registro de Autor</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Autor agregado correctamente.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-}
+<h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Autor</h4>
         <hr />
@@ -68,12 +45,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
-    @if (ViewBag.msj == "nk}*v%7t?PXbiTDGPgqqvq:T,-:{Hc")
-    {
-        <script>
-            $('#myModal').modal();
-        </script>
-    }
-
 }

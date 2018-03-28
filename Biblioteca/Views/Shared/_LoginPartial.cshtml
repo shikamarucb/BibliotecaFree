@@ -2,6 +2,32 @@
 @using Biblioteca.Helpers
 @if (Request.IsAuthenticated)
 {
+    if (User.IsInRole("SuperUsuario"))
+    {
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administradores
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Consultar","GetAdmin","Admin")</li>
+                    <li>@Html.ActionLink("Agregar","CreateAdmin","Admin")</li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bibliotecario
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Consultar</a></li>
+                    <li><a href="#">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Eliminar</a></li>
+                </ul>
+            </li>
+        </ul>
+    }
+
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
         @Html.AntiForgeryToken()
@@ -14,6 +40,12 @@
 }
 else
 {
+    <ul class="nav navbar-nav">
+        <li class="@ViewBag.Home"><a href="#">Home</a></li>
+        <li class="@ViewBag.Page1"><a href="#">Page 1</a></li>
+        <li class="@ViewBag.Page2"><a href="#">Page 2</a></li>
+        <li class="@ViewBag.Page3"><a href="#">Page 3</a></li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="@ViewBag.Register"><a href="@Url.Action("Register","Account")"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
         <li class="@ViewBag.Login"><a href="@Url.Action("Login","Account")"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
